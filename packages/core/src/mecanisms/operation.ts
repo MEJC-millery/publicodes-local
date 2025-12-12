@@ -170,6 +170,30 @@ const evaluate: EvaluationFunction<'operation'> = function (node) {
 		}
 		return evaluatedNode
 	}
+	if (
+		['-'].includes(node.operationKind) &&
+		( // left operand is a date
+			typeof a === 'string' &&
+			a.match?.(/^[\d]{2}\/[\d]{2}\/[\d]{4}$/)
+		) &&
+		( // right operand is a a date
+			typeof b === 'string' &&
+			b.match?.(/^[\d]{2}\/[\d]{2}\/[\d]{4}$/)
+		)
+	) {
+		const da = convertToDate(a)
+		const db = convertToDate(b)
+		const debut = new Date(db.getFullYear(), db.getMonth(), db.getDate());
+		const fin = new Date(da.getFullYear(), da.getMonth(), db.getDate());
+
+		const diffMs = fin.getTime() - debut.getTime();
+		const diffJours = diffMs / (1000 * 60 * 60 * 24);
+		return {
+			...evaluatedNode,
+			nodeValue: diffJours,
+			unit: { numerators: ['jours'], denominators: [] },
+		}
+	}
 
 	evaluatedNode.nodeValue =
 		'nodeValue' in evaluatedNode ? evaluatedNode.nodeValue
