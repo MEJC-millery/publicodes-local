@@ -8,6 +8,8 @@ import { convertNodeToUnit } from '../nodeUnits'
 import parse from '../parse'
 import { inferUnit, serializeUnit } from '../units'
 
+import { getRelativeDate, getRelativeDateMonth, getRelativeDateYear } from '../date'
+
 const knownOperations = {
 	'*': [(a, b) => a * b, '×'],
 	'/': [(a, b) => a / b, '∕'],
@@ -143,6 +145,31 @@ const evaluate: EvaluationFunction<'operation'> = function (node) {
 
 	const a = node1.nodeValue as string | boolean | null
 	const b = node2.nodeValue as string | boolean | null
+
+	if (
+		['+', '-'].includes(node.operationKind) &&
+		( // left operand is a date
+			typeof a === 'string' &&
+			a.match?.(/^[\d]{2}\/[\d]{2}\/[\d]{4}$/)
+		) &&
+		( // right operand is a step in day/month/year
+			typeof b === 'number' &&
+			Number.isInteger(b) &&
+			node2.unit !== undefined &&
+			['jours', 'mois', 'an'].includes(node2.unit.numerators[0])
+		)
+	) {
+		if (node2.unit.numerators.includes('jours')) {
+			evaluatedNode.nodeValue = getRelativeDate(a,b)
+		}
+		else if (node2.unit.numerators.includes('mois')) {
+			evaluatedNode.nodeValue = getRelativeDateMonth(a,b)
+		}
+		else if (node2.unit.numerators.includes('an')) {
+			evaluatedNode.nodeValue = getRelativeDateYear(a,b)
+		}
+		return evaluatedNode
+	}
 
 	evaluatedNode.nodeValue =
 		'nodeValue' in evaluatedNode ? evaluatedNode.nodeValue

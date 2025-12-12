@@ -44,6 +44,18 @@ export function getRelativeDate(date: string, dayDifferential: number): string {
 	return convertToString(relativeDate)
 }
 
+export function getRelativeDateMonth(date: string, monthDifferential: number): string {
+	const relativeDate = new Date(convertToDate(date))
+	const finalDate = new Date(relativeDate.getFullYear(), relativeDate.getMonth() + monthDifferential, relativeDate.getDate())
+	return convertToString(finalDate)
+}
+
+export function getRelativeDateYear(date: string, yearDifferential: number): string {
+	const relativeDate = new Date(convertToDate(date))
+	const finalDate = new Date(relativeDate.getFullYear() + yearDifferential, relativeDate.getMonth(), relativeDate.getDate())
+	return convertToString(finalDate)
+}
+
 export function getYear(date: string): number {
 	return +date.slice(-4)
 }

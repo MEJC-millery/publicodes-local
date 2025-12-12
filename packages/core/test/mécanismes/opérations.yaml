@@ -68,6 +68,37 @@ addition:
         b: 4%
       valeur attendue: undefined
       variables manquantes: [a]
+    - nom: une date et un delta en jours
+      situation:
+        a: 10/10/2025
+        b: 3 jours
+      valeur attendue: 13/10/2025
+    - nom: une date et un delta en jours avec changement de mois
+      situation:
+        a: 29/10/2025
+        b: 3 jours
+      valeur attendue: 01/11/2025
+    - nom: une date et un delta en mois
+      situation:
+        a: 29/10/2025
+        b: 2 mois
+      valeur attendue: 29/12/2025
+    - nom: une date et un delta en mois (prise en compte de la durée en jours du mois)
+      situation:
+        a: 31/10/2025
+        b: 1 mois
+      valeur attendue: 01/12/2025
+      # on passe en décembre du fait que le 31/11 n'existe pas
+    - nom: une date et un delta en mois avec changement d'année
+      situation:
+        a: 29/10/2025
+        b: 5 mois
+      valeur attendue: 29/03/2026
+    - nom: une date et un delta en année
+      situation:
+        a: 29/10/2025
+        b: 2 an
+      valeur attendue: 29/10/2027
 
 soustraction:
   -:
@@ -128,6 +159,37 @@ soustraction:
         a: 10 %/an
         b: 4%
       valeur: 9.6 %/an
+    - nom: une date et un delta en jours
+      situation:
+        a: 13/10/2025
+        b: 3 jours
+      valeur attendue: 10/10/2025
+    - nom: une date et un delta en jours avec changement de mois
+      situation:
+        a: 01/11/2025
+        b: 3 jours
+      valeur attendue: 29/10/2025
+    - nom: une date et un delta en mois
+      situation:
+        a: 29/10/2025
+        b: 2 mois
+      valeur attendue: 29/08/2025
+    - nom: une date et un delta en mois (prise en compte de la durée en jours du mois)
+      situation:
+        a: 31/10/2025
+        b: 1 mois
+      valeur attendue: 01/10/2025
+      # on reste en octobre du fait que le 31/09 n'existe pas
+    - nom: une date et un delta en mois avec changement d'année
+      situation:
+        a: 29/03/2025
+        b: 5 mois
+      valeur attendue: 29/10/2024
+    - nom: une date et un delta en année
+      situation:
+        a: 29/10/2025
+        b: 2 an
+      valeur attendue: 29/10/2023
 
 multiplication:
   '*':
