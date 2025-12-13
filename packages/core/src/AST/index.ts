@@ -309,6 +309,8 @@ const traverseArrondiNode: TraverseFunction<'arrondi'> = (fn, node) => {
 	copy.explanation = {
 		valeur: fn(node.explanation.valeur),
 		arrondi: fn(node.explanation.arrondi),
+		inférieur: fn(node.explanation.inférieur),
+		supérieur: fn(node.explanation.supérieur),
 	}
 	return copy
 }
