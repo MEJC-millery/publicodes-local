@@ -159,14 +159,15 @@ const evaluate: EvaluationFunction<'operation'> = function (node) {
 			['jours', 'mois', 'an'].includes(node2.unit.numerators[0])
 		)
 	) {
+		const multiplier = node.operationKind === '-' ? -1 : 1;
 		if (node2.unit.numerators.includes('jours')) {
-			evaluatedNode.nodeValue = getRelativeDate(a,b)
+			evaluatedNode.nodeValue = getRelativeDate(a,multiplier * b)
 		}
 		else if (node2.unit.numerators.includes('mois')) {
-			evaluatedNode.nodeValue = getRelativeDateMonth(a,b)
+			evaluatedNode.nodeValue = getRelativeDateMonth(a,multiplier * b)
 		}
 		else if (node2.unit.numerators.includes('an')) {
-			evaluatedNode.nodeValue = getRelativeDateYear(a,b)
+			evaluatedNode.nodeValue = getRelativeDateYear(a,multiplier * b)
 		}
 		return evaluatedNode
 	}
