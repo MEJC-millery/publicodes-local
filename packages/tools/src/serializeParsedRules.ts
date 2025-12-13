@@ -442,12 +442,8 @@ function serializeASTNode(node: ASTNode): SerializedRule {
 				}
 
 				case 'début du mois': {
-					const serializedValeur = serializedRuleToRawRule(
-						serializeASTNode(node.explanation.valeur),
-					)
 					return {
-						...serializedValeur,
-						'début du mois': serializeASTNode(node.explanation['début du mois']),
+						[node.nodeKind]: serializeASTNode(node.explanation),
 					}
 				}
 
