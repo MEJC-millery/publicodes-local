@@ -2,7 +2,6 @@
 import { EvaluationFunction } from '..'
 import { ASTNode } from '../AST/types'
 import {
-	normalizeDate,
 	convertToDate,
 	convertToString,
 } from '../date'
