@@ -10,6 +10,8 @@ export type ArrondiNode = {
 	explanation: {
 		arrondi: ASTNode
 		valeur: ASTNode
+		inférieur?: ASTNode
+		supérieur?: ASTNode
 	}
 	nodeKind: 'arrondi'
 }
@@ -64,6 +66,8 @@ export default function parseArrondi(v, context) {
 	const explanation = {
 		valeur: parse(v.valeur, context),
 		arrondi: parse(v.arrondi, context),
+		inférieur: parse(v.inférieur ?? 'non', context),
+		supérieur: parse(v.supérieur ?? 'non', context)
 	}
 	return {
 		explanation,
