@@ -172,6 +172,8 @@ export default function inferNodesTypes(
 			case "nombre de jours":
 			case "nombre de jours fériés":
 				return { isNullable: false, type: 'number' }
+			case "début du mois":
+				return { isNullable: false, type: 'date' }
 		}
 	}
 

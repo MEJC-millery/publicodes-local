@@ -42,6 +42,7 @@ import parseReference from './parseReference'
 import { parseUnit } from './units'
 import nombreDeJours from './mecanisms/nombre-de-jours'
 import nombreDeJoursFériés from './mecanisms/nombre-de-jours-feries'
+import débutDuMois from './mecanisms/debut-du-mois'
 
 export default function parse(rawNode, context: Context): ASTNode {
 	if (rawNode == undefined) {
@@ -215,6 +216,7 @@ const parseFunctions = {
 		}),
 	"nombre de jours": nombreDeJours,
 	"nombre de jours fériés": nombreDeJoursFériés,
+	"début du mois": débutDuMois,
 }
 
 export const mecanismKeys = Object.keys(parseFunctions)

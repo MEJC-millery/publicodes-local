@@ -420,6 +420,37 @@ function serializeASTNode(node: ASTNode): SerializedRule {
 					}
 				}
 
+				case 'nombre de jours': {
+					return {
+						durée: {
+							depuis: serializeASTNode(node.explanation.depuis),
+							"jusqu'à": serializeASTNode(node.explanation["jusqu'à"]),
+							"référence": serializeASTNode(node.explanation["référence"]),
+						},
+					}
+				}
+
+				case 'nombre de jours fériés': {
+					return {
+						durée: {
+							depuis: serializeASTNode(node.explanation.depuis),
+							"jusqu'à": serializeASTNode(node.explanation["jusqu'à"]),
+							"ignore repos": serializeASTNode(node.explanation["ignore repos"]),
+							"alsace moselle": serializeASTNode(node.explanation["alsace moselle"]),
+						},
+					}
+				}
+
+				case 'début du mois': {
+					const serializedValeur = serializedRuleToRawRule(
+						serializeASTNode(node.explanation.valeur),
+					)
+					return {
+						...serializedValeur,
+						'début du mois': serializeASTNode(node.explanation['début du mois']),
+					}
+				}
+
 				case 'replacementRule': {
 					throw new Error(
 						`[SERIALIZE_AST_NODE]: 'replacementRule' should have been handled before`,
