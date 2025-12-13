@@ -176,7 +176,8 @@ export const traverseASTNode: TraverseFunction<NodeKind> = (fn, node) => {
 		case "nombre de jours fériés":
 			return traverseNombreDeJoursFériésNode(fn, node)
 		case "début du mois":
-			return traverseDébutDuMoisNode(fn, node);
+		case "fin du mois":
+			return traverseCalendrier(fn, node);
 		default:
 			throw new UnreachableCaseError(node)
 	}
@@ -406,7 +407,10 @@ const traverseNombreDeJoursFériésNode: TraverseFunction<'nombre de jours féri
 	return copy
 }
 
-const traverseDébutDuMoisNode: TraverseFunction<'début du mois'> = (fn, node) => {
+const traverseCalendrier: TraverseFunction<
+	| 'début du mois'
+	| 'fin du mois'
+> = (fn, node) => {
 	const copy = weakCopyObj(node)
 
 	copy.explanation = fn(node.explanation)

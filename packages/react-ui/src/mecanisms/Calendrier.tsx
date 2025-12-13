@@ -1,7 +1,10 @@
 import { EvaluatedNode } from 'publicodes'
 import DefaultInlineMecanism from './common/DefaultInlineMecanism'
 
-export default function MecanismDébutDuMois(node: EvaluatedNode<"début du mois">) {
+export default function MecanismCalendrier(node: EvaluatedNode<
+	| "début du mois"
+	| "fin du mois"
+>) {
 	return (
 		<DefaultInlineMecanism
 			{...node}

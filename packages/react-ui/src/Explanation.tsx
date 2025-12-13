@@ -26,7 +26,7 @@ import UnePossibilité from './mecanisms/UnePossibilité'
 import Logarithme from './mecanisms/Logarithme'
 import NombreDeJours from './mecanisms/NombreDeJours'
 import NombreDeJoursFériés from './mecanisms/NombreDeJoursFériés'
-import DébutDuMois from './mecanisms/DébutDuMois'
+import Calendrier from './mecanisms/Calendrier'
 
 const UIComponents = {
 	constant: Constant,
@@ -57,7 +57,8 @@ const UIComponents = {
 	'une possibilité': UnePossibilité,
 	'nombre de jours': NombreDeJours,
 	'nombre de jours fériés': NombreDeJoursFériés,
-	'début du mois': DébutDuMois,
+	'début du mois': Calendrier,
+	'fin du mois': Calendrier,
 } as const
 
 /**

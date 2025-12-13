@@ -441,7 +441,8 @@ function serializeASTNode(node: ASTNode): SerializedRule {
 					}
 				}
 
-				case 'début du mois': {
+				case 'début du mois':
+				case 'fin du mois': {
 					return {
 						[node.nodeKind]: serializeASTNode(node.explanation),
 					}
