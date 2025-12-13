@@ -60,6 +60,7 @@ const UIComponents = {
 	'début du mois': Calendrier,
 	'fin du mois': Calendrier,
 	"début d'année": Calendrier,
+	"fin d'année": Calendrier,
 } as const
 
 /**

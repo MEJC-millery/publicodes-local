@@ -45,6 +45,7 @@ import nombreDeJoursFériés from './mecanisms/nombre-de-jours-feries'
 import débutDuMois from './mecanisms/debut-du-mois'
 import finDuMois from './mecanisms/fin-du-mois'
 import débutDAnnée from './mecanisms/debut-d-annee'
+import finDAnnée from './mecanisms/fin-d-annee'
 
 export default function parse(rawNode, context: Context): ASTNode {
 	if (rawNode == undefined) {
@@ -221,6 +222,7 @@ const parseFunctions = {
 	"début du mois": débutDuMois,
 	"fin du mois": finDuMois,
 	"début d'année": débutDAnnée,
+	"fin d'année": finDAnnée,
 }
 
 export const mecanismKeys = Object.keys(parseFunctions)

@@ -443,7 +443,8 @@ function serializeASTNode(node: ASTNode): SerializedRule {
 
 				case 'début du mois':
 				case 'fin du mois':
-				case "début d'année": {
+				case "début d'année":
+				case "fin d'année": {
 					return {
 						[node.nodeKind]: serializeASTNode(node.explanation),
 					}
