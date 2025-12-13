@@ -22,21 +22,21 @@ const evaluate: EvaluationFunction<'suivant'> = function (node) {
 		if (typeof nodeValue === 'string'
 				&& nodeValue.match?.(/^[\d]{2}\/[\d]{2}\/[\d]{4}$/))
 		{
-			if (node.explanation.unit === undefined)
+			if (valeur.unit === undefined)
 			{}
-			else if (node.explanation.unit.numerators.includes('jour'))
+			else if (valeur.unit.numerators.includes('jour'))
 			{
 				const date = convertToDate(nodeValue)
 				const date2 = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1)
 				nodeValue = convertToString(date2)
 			}
-			else if (node.explanation.unit.numerators.includes('mois'))
+			else if (valeur.unit.numerators.includes('mois'))
 			{
 				const date = convertToDate(nodeValue)
 				const date2 = new Date(date.getFullYear(), date.getMonth()+1, date.getDate())
 				nodeValue = convertToString(date2)
 			}
-			else if (node.explanation.unit.numerators.includes('an'))
+			else if (valeur.unit.numerators.includes('an'))
 			{
 				const date = convertToDate(nodeValue)
 				const date2 = new Date(date.getFullYear()+1, date.getMonth(), date.getDate())
