@@ -29,6 +29,8 @@ const evaluate: EvaluationFunction<'arrondi'> = function (node) {
 	const valeur = simplifyNodeUnit(this.evaluateNode(node.explanation.valeur))
 	const nodeValue = valeur.nodeValue
 	let arrondi = node.explanation.arrondi
+	let inférieur = node.explanation.inférieur
+	let supérieur = node.explanation.supérieur
 	if (nodeValue !== false) {
 		arrondi = this.evaluateNode(arrondi)
 
@@ -56,7 +58,7 @@ const evaluate: EvaluationFunction<'arrondi'> = function (node) {
 			: arrondi.nodeValue === true ? roundWithPrecision(valeur.nodeValue, 0)
 			: arrondi.nodeValue === undefined ? undefined
 			: valeur.nodeValue,
-		explanation: { valeur, arrondi },
+		explanation: { valeur, arrondi,inférieur, supérieur },
 		missingVariables: mergeAllMissing([valeur, arrondi]),
 		unit: valeur.unit,
 	}
