@@ -10,8 +10,8 @@ export type ArrondiNode = {
 	explanation: {
 		arrondi: ASTNode
 		valeur: ASTNode
-		inférieur?: ASTNode
-		supérieur?: ASTNode
+		inférieur: ASTNode
+		supérieur: ASTNode
 	}
 	nodeKind: 'arrondi'
 }
