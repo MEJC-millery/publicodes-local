@@ -182,6 +182,8 @@ export const traverseASTNode: TraverseFunction<NodeKind> = (fn, node) => {
 		case "suivant":
 		case "précédent":
 			return traverseCalendrier(fn, node);
+		case 'inférieur':
+			return traverseInférieurNode(fn, node)
 		default:
 			throw new UnreachableCaseError(node)
 	}
@@ -423,5 +425,19 @@ const traverseCalendrier: TraverseFunction<
 	const copy = weakCopyObj(node)
 
 	copy.explanation = fn(node.explanation)
+	return copy
+}
+
+
+const traverseInférieurNode: TraverseFunction<
+	| 'inférieur'
+> = (fn, node) => {
+	const copy = weakCopyObj(node)
+
+	copy.explanation = {
+		valeur: fn(node.explanation.valeur),
+		inférieur: fn(node.explanation.inférieur),
+	}
+
 	return copy
 }

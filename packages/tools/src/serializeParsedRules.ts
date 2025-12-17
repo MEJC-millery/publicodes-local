@@ -452,6 +452,16 @@ function serializeASTNode(node: ASTNode): SerializedRule {
 					}
 				}
 
+				case 'inférieur': {
+					const serializedValeur = serializedRuleToRawRule(
+						serializeASTNode(node.explanation.valeur),
+					)
+					return {
+						...serializedValeur,
+						inférieur: serializeASTNode(node.explanation.inférieur),
+					}
+				}
+
 				case 'replacementRule': {
 					throw new Error(
 						`[SERIALIZE_AST_NODE]: 'replacementRule' should have been handled before`,
