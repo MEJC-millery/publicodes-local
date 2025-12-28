@@ -68,7 +68,7 @@ function formatParserError({
 	}`
 
 	return `L'expression suivante n'est pas valide :
-   
+
    ${expression}
    ${pointer}
    ${customMessage ?? defaultMessage}
