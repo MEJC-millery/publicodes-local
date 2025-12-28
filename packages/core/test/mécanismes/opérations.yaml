@@ -87,8 +87,7 @@ addition:
       situation:
         a: 31/10/2025
         b: 1 mois
-      valeur attendue: 01/12/2025
-      # on passe en décembre du fait que le 31/11 n'existe pas
+      valeur attendue: 30/11/2025
     - nom: une date et un delta en mois avec changement d'année
       situation:
         a: 29/10/2025
@@ -178,8 +177,7 @@ soustraction:
       situation:
         a: 31/10/2025
         b: 1 mois
-      valeur attendue: 01/10/2025
-      # on reste en octobre du fait que le 31/09 n'existe pas
+      valeur attendue: 30/09/2025
     - nom: une date et un delta en mois avec changement d'année
       situation:
         a: 29/03/2025

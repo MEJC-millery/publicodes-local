@@ -1,0 +1,63 @@
+
+date: 31/01/2020
+
+avant:
+    début d'année: date
+après:
+    fin d'année: date
+
+nombre de lundi:
+    nombre de jours:
+        depuis: avant
+        jusqu'à: après
+        référence: "'lundi'"
+    exemple:
+      - valeur attendue: 52 jour
+
+nombre de mardi:
+    nombre de jours:
+        depuis: avant
+        jusqu'à: après
+        référence: "'mardi'"
+    exemple:
+      - valeur attendue: 52 jour
+
+nombre de mercredi:
+    nombre de jours:
+        depuis: avant
+        jusqu'à: après
+        référence: "'mercredi'"
+    exemple:
+      - valeur attendue: 53 jour
+
+nombre de jeudi:
+    nombre de jours:
+        depuis: avant
+        jusqu'à: après
+        référence: "'jeudi'"
+    exemple:
+      - valeur attendue: 53 jour
+
+nombre de vendredi:
+    nombre de jours:
+        depuis: avant
+        jusqu'à: après
+        référence: "'vendredi'"
+    exemple:
+      - valeur attendue: 52 jour
+
+nombre de samedi:
+    nombre de jours:
+        depuis: avant
+        jusqu'à: après
+        référence: "'samedi'"
+    exemple:
+      - valeur attendue: 52 jour
+
+nombre de dimanche:
+    nombre de jours:
+        depuis: avant
+        jusqu'à: après
+        référence: "'dimanche'"
+    exemple:
+      - valeur attendue: 52 jour

@@ -1,0 +1,6 @@
+
+debut du mois sur date:
+  valeur:
+    début d'année: 15/09/2025
+  exemples:
+    - valeur attendue: 01/09/2025

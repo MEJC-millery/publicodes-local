@@ -1,0 +1,12 @@
+
+debut d'année sur date:
+  valeur:
+    début d'année: 03/09/2025
+  exemples:
+    - valeur attendue: 01/01/2025
+
+debut d'année sur année:
+  valeur:
+    début d'année: 2012
+  exemples:
+    - valeur attendue: 01/01/2012

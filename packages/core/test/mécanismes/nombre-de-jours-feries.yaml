@@ -1,0 +1,43 @@
+
+date: 31/01/2020
+
+avant:
+    début d'année: date
+après:
+    fin d'année: date
+
+nombre de fériés  y compris repos:
+    nombre de jours fériés:
+        depuis: avant
+        jusqu'à: après
+        ignore repos: non
+        alsace moselle: non
+    exemple:
+      - valeur attendue: 13 jour
+
+nombre de fériés  hors repos:
+    nombre de jours fériés:
+        depuis: avant
+        jusqu'à: après
+        ignore repos: oui
+        alsace moselle: non
+    exemple:
+      - valeur attendue: 9 jour
+
+nombre de fériés  y compris repos:
+    nombre de jours fériés:
+        depuis: avant
+        jusqu'à: après
+        ignore repos: non
+        alsace moselle: oui
+    exemple:
+      - valeur attendue: 15 jour
+
+nombre de fériés  hors repos:
+    nombre de jours fériés:
+        depuis: avant
+        jusqu'à: après
+        ignore repos: oui
+        alsace moselle: oui
+    exemple:
+      - valeur attendue: 10 jour

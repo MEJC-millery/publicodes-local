@@ -1,0 +1,12 @@
+
+fin d'année sur date:
+  valeur:
+    fin d'année: 03/09/2025
+  exemples:
+    - valeur attendue: 31/12/2025
+
+fin d'année sur année:
+  valeur:
+    fin d'année: 2012
+  exemples:
+    - valeur attendue: 31/12/2012

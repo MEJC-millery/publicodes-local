@@ -1,0 +1,21 @@
+
+le jour suivant:
+  valeur:
+    suivant: 15/09/2025
+  unité: jour
+  exemples:
+    - valeur attendue: 16/09/2025
+
+le mois suivant:
+  valeur:
+    suivant: 15/09/2025
+  unité: mois
+  exemples:
+    - valeur attendue: 01/10/2025
+
+l'année suivante:
+  valeur:
+    suivant: 15/09/2025
+  unité: an
+  exemples:
+    - valeur attendue: 01/01/2026
